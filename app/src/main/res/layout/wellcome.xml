@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".front.Wellcome">
+
+    <TextView
+        android:id="@+id/tvBemVindo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bem_vindo_pinterest"
+        android:textSize="31dp"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@id/btnContinuar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/email_login"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:background="#D6D6D6"
+        android:inputType="textEmailAddress"
+        android:text="@string/endereco_email"
+        android:textColor="#454545"
+        android:textSize="14sp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/btnContinuar"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:background="#DA0000"
+        android:text="@string/botao_continuar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_login"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

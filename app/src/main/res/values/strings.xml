@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ImagesBook</string>
+    <string name="bem_vindo_pinterest">Bem-vindo(a) ao\nPinterest</string>
+    <string name="endereco_email">Endereço de email</string>
+    <string name="botao_continuar">Continuar</string>
+    <string name="criar_senha">Criar uma senha</string>
+    <string name="avancar">Avançar</string>
+    <string name="password">Senha</string>
+    <string name="realizar_login">Login</string>
+    <string name="email_tela_login">E-mail</string>
+    <string name="entrar">Entrar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

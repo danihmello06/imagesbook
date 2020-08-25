@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/wellcome">
+    <fragment
+        android:id="@+id/createAccount"
+        android:name="com.example.imagesbook.front.CreateAccount"
+        android:label="create_account"
+        tools:layout="@layout/create_account" >
+        <action
+            android:id="@+id/action_createAccount_to_feed"
+            app:destination="@id/feed" />
+    </fragment>
+    <fragment
+        android:id="@+id/feed"
+        android:name="com.example.imagesbook.front.Feed"
+        android:label="feed"
+        tools:layout="@layout/feed" />
+    <fragment
+        android:id="@+id/wellcome"
+        android:name="com.example.imagesbook.front.Wellcome"
+        android:label="wellcome"
+        tools:layout="@layout/wellcome" >
+        <action
+            android:id="@+id/action_wellcome_to_createAccount"
+            app:destination="@id/createAccount" />
+    </fragment>
+</navigation>
