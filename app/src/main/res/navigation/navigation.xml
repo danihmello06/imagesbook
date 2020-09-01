@@ -26,5 +26,13 @@
         <action
             android:id="@+id/action_wellcome_to_createAccount"
             app:destination="@id/createAccount" />
+        <action
+            android:id="@+id/action_wellcome_to_login"
+            app:destination="@id/login" />
     </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.imagesbook.front.Login"
+        android:label="login"
+        tools:layout="@layout/login" />
 </navigation>
