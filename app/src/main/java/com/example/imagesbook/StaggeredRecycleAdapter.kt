@@ -10,11 +10,11 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.imagesbook.backend.model.Post
 import kotlinx.android.synthetic.main.layout_photo_list_item.view.*
 
-class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class StaggeredRecycleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: List<Post> = ArrayList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.layout_photo_list_item, parent, false)
         )
@@ -34,8 +34,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun submitList(list: List<Post>) {
         items = list
+        notifyDataSetChanged()
     }
-
 
     class ViewHolder constructor(
         itemView: View
@@ -58,6 +58,4 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 .into(image)
         }
     }
-
-
 }
