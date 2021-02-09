@@ -1,4 +1,4 @@
-package com.example.imagesbook.front
+package com.example.imagesbook.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.imagesbook.R
-import com.example.imagesbook.backend.data.remote.UserServiceFactory
-import com.example.imagesbook.backend.model.User
+import com.example.imagesbook.remote.UserServiceFactory
+import com.example.imagesbook.model.User
 import kotlinx.android.synthetic.main.create_account.view.*
 import java.util.*
 

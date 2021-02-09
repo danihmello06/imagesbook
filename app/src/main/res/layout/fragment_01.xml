@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment01">
+    tools:context=".view.Fragment01">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler_view"
-        android:visibility="invisible"
-        app:layout_goneMarginBottom=""
-        app:barrierMargin=""
-        app:barrierAllowsGoneWidgets=""/>
+        android:visibility="visible"
+/>
 
 
 

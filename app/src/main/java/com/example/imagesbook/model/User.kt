@@ -1,4 +1,4 @@
-package com.example.imagesbook.backend.model
+package com.example.imagesbook.model
 
 import java.util.*
 

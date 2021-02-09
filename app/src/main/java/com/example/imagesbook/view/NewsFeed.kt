@@ -1,15 +1,8 @@
-package com.example.imagesbook.front
+package com.example.imagesbook.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.add
-import androidx.fragment.app.replace
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
-import com.example.imagesbook.Fragment01
-import com.example.imagesbook.Fragment02
-import com.example.imagesbook.Fragment03
 import com.example.imagesbook.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

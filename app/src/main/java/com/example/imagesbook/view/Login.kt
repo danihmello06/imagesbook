@@ -1,4 +1,4 @@
-package com.example.imagesbook.front
+package com.example.imagesbook.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

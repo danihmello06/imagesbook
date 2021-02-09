@@ -1,14 +1,17 @@
-package com.example.imagesbook
+package com.example.imagesbook.view
 
-import android.os.AsyncTask
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.imagesbook.backend.DataSource
+import com.example.imagesbook.R
+import com.example.imagesbook.adapter.StaggeredRecycleAdapter
+import com.example.imagesbook.TopSpacingItemDecoration
+import com.example.imagesbook.model.Post
+import com.example.imagesbook.model.Posts
+import com.example.imagesbook.remote.PostServiceFactory
 import kotlinx.android.synthetic.main.fragment_01.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
@@ -31,6 +34,7 @@ class Fragment01 : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+
         CoroutineScope(IO).launch {
             initializeData()
         }
@@ -41,24 +45,6 @@ class Fragment01 : Fragment() {
     private suspend fun initializeData() {
 
         withContext(Main) {
-
-            //ROTINAS PARALELAS
-
-            val job1 = launch {
-                val time = measureTimeMillis {
-                    println("launching job1 in thread: ${Thread.currentThread().name} ")
-                    initRecyclerView()
-                }
-                println("debug: completed job1 in $time ms.")
-            }
-
-            val job2 = launch {
-                val time = measureTimeMillis {
-                    println("launching job2 in thread: ${Thread.currentThread().name} ")
-                    addDataSet()
-                }
-                println("debug: completed job2 in $time ms.")
-            }
 
             //ROTINAS SEQUENCIAIS
 
@@ -80,9 +66,13 @@ class Fragment01 : Fragment() {
     private suspend fun addDataSet() {
         delay(100)
 
-        val data = DataSource.createDataSet()
-        staggeredRecycleAdapter.submitList(data)
+        val data = PostServiceFactory.makeService().getPostsList()
+        //staggeredRecycleAdapter.submitList(data)
     }
+
+//    private fun getAllPosts() : List<Posts>{
+//        return PostServiceFactory.makeService().getPostsList()
+//    }
 
     private suspend fun initRecyclerView() {
         delay(1500)

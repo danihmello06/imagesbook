@@ -1,4 +1,4 @@
-package com.example.imagesbook.backend.data.remote
+package com.example.imagesbook.remote
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object UserServiceFactory {
 
 //talvez essa bagaça de treta por nao ser o ip certo
-private const val API_BASE_URL = "http://192.168.0.19:8080/"
+private const val API_BASE_URL = "http://192.168.0.10:8080/"
 
     fun makeService(): UserService {
         val logging = HttpLoggingInterceptor()
@@ -24,4 +24,5 @@ private const val API_BASE_URL = "http://192.168.0.19:8080/"
             .client(httpCLient.build())
             .build().create(UserService::class.java)
     }
+
 }

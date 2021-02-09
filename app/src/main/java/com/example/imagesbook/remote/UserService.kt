@@ -1,6 +1,7 @@
-package com.example.imagesbook.backend.data.remote
+package com.example.imagesbook.remote
 
-import com.example.imagesbook.backend.model.User
+import com.example.imagesbook.model.Post
+import com.example.imagesbook.model.User
 import retrofit2.Call
 import retrofit2.http.*
 import java.util.*
@@ -16,4 +17,5 @@ interface UserService {
     @DELETE("user/{id}")
     fun deleteUser(@Path("id") id: UUID)
 
+    fun getAllImages(): Call<List<Post>>
 }

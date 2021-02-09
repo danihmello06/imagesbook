@@ -1,22 +1,36 @@
-package com.example.imagesbook
+package com.example.imagesbook.adapter
 
+import android.opengl.GLES32
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.ActionMenuItemView
+import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.imagesbook.backend.model.Post
+import com.example.imagesbook.R
+import com.example.imagesbook.model.Post
+import com.example.imagesbook.viewmodel.AppViewModel
 import kotlinx.android.synthetic.main.layout_photo_list_item.view.*
 
 class StaggeredRecycleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: List<Post> = ArrayList()
+    private var layoutId = 0  //resolver isso melhor
+    private lateinit var viewModel: AppViewModel
+
+
+
+    fun StaggeredRecycleAdapter(@LayoutRes layoutId: Int, viewModel: AppViewModel) {
+        this.layoutId = layoutId
+        this.viewModel = viewModel
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.layout_photo_list_item, parent, false)
+
         )
     }
 
@@ -42,11 +56,11 @@ class StaggeredRecycleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() 
     ): RecyclerView.ViewHolder(itemView) {
         val image = itemView.image_card
         val title = itemView.image_title
-        val author = itemView.image_author
+//        val author = itemView.image_author
 
         fun bind(post: Post) {
             title.setText(post.title)
-            author.setText(post.username)
+//            author.setText(post.username)
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background)
