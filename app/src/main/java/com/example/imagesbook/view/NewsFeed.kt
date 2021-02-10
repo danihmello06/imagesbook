@@ -3,14 +3,21 @@ package com.example.imagesbook.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.imagesbook.R
+import com.example.imagesbook.viewmodel.AppViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NewsFeed : AppCompatActivity() {
 
+    lateinit var viewModel: AppViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news_feed)
+
+        viewModel = ViewModelProvider(this).get(AppViewModel::class.java)
 
         val bottomNV = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 

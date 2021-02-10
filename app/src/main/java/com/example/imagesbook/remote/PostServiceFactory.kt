@@ -1,7 +1,5 @@
 package com.example.imagesbook.remote
 
-import com.example.imagesbook.model.Post
-import com.example.imagesbook.model.Posts
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,9 +17,6 @@ object PostServiceFactory {
         val httpClient = OkHttpClient.Builder().addInterceptor(logging)
 
         val gson = GsonBuilder()
-            .registerTypeAdapter(
-                Posts::class.java,
-                JsonPostDeserializer())
             .create()
 
         val builder = Retrofit.Builder()

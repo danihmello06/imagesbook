@@ -16,19 +16,19 @@ class Posts : Observable() {
 
     fun addPost(post: Post) { postList.add(post) }
 
-    fun fetchList() {
-        val callback = object : Callback<Posts> {
-            override fun onResponse(call: Call<Posts>, response: Response<Posts>) {
-                var postBody = response.body()
-                posts.value = postBody?.postList
-            }
-
-            override fun onFailure(call: Call<Posts>, t: Throwable) {
-                Log.e("Test", t.message, t)
-            }
-
-        }
-        PostServiceFactory.makeService().getPostsList().enqueue(callback)
-    }
+//    fun fetchList() {
+//        val callback = object : Callback<Posts> {
+//            override fun onResponse(call: Call<Posts>, response: Response<Posts>) {
+//                var postBody = response.body()
+//                posts.value = postBody?.postList
+//            }
+//
+//            override fun onFailure(call: Call<Posts>, t: Throwable) {
+//                Log.e("Test", t.message, t)
+//            }
+//
+//        }
+//        PostServiceFactory.makeService().getPostsList().enqueue(callback)
+//    }
 
 }

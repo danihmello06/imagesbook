@@ -8,6 +8,6 @@ import retrofit2.http.GET
 interface PostService {
 
     @GET("post")
-    fun getPostsList() : Call<Posts>
+    fun getPostsList() : Call<MutableList<Post>>
 
 }

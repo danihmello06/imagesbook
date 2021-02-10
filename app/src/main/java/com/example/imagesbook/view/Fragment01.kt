@@ -1,10 +1,15 @@
 package com.example.imagesbook.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.imagesbook.R
 import com.example.imagesbook.adapter.StaggeredRecycleAdapter
@@ -12,6 +17,7 @@ import com.example.imagesbook.TopSpacingItemDecoration
 import com.example.imagesbook.model.Post
 import com.example.imagesbook.model.Posts
 import com.example.imagesbook.remote.PostServiceFactory
+import com.example.imagesbook.viewmodel.AppViewModel
 import kotlinx.android.synthetic.main.fragment_01.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
@@ -22,68 +28,37 @@ import kotlin.system.measureTimeMillis
 class Fragment01 : Fragment() {
 
     private val staggeredRecycleAdapter by lazy { StaggeredRecycleAdapter() }
+    lateinit var viewModel: AppViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_01, container, false)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        initRecyclerView()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        viewModel = ViewModelProvider(requireActivity()).get(AppViewModel::class.java)
+        viewModel.post.observe(viewLifecycleOwner, Observer { posts ->
+            Log.e(Fragment01::class.java.simpleName, "$posts")
+        })
+        viewModel.getPosts()
 
-        CoroutineScope(IO).launch {
-            initializeData()
-        }
-//        initRecyclerView()
-//        addDataSet()
     }
 
-    private suspend fun initializeData() {
-
-        withContext(Main) {
-
-            //ROTINAS SEQUENCIAIS
-
-            val executionTime = measureTimeMillis {
-
-                val result1 = async {
-                    initRecyclerView()
-                }.await()
-
-                val result2 = async {
-                    addDataSet()
-                }.await()
-
-            }
-            println("Total elapsed time: $executionTime ms.")
-        }
-    }
-
-    private suspend fun addDataSet() {
-        delay(100)
-
-        val data = PostServiceFactory.makeService().getPostsList()
-        //staggeredRecycleAdapter.submitList(data)
-    }
-
-//    private fun getAllPosts() : List<Posts>{
-//        return PostServiceFactory.makeService().getPostsList()
-//    }
-
-    private suspend fun initRecyclerView() {
-        delay(1500)
+    private fun initRecyclerView() {
         recycler_view.apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-            //layoutManager =   LinearLayoutManager(context)
             val topSpacingDecoration = TopSpacingItemDecoration(30)
             addItemDecoration(topSpacingDecoration)
             adapter = staggeredRecycleAdapter
         }
     }
-
-
 }
