@@ -12,15 +12,18 @@ import retrofit2.Response
 
 class AppViewModel : ViewModel() {
 
-     var post: MutableLiveData<MutableList<Post>> = MutableLiveData()
+    var post: MutableLiveData<MutableList<Post>> = MutableLiveData()
 
     fun getPosts() {
+
         PostServiceFactory.makeService().getPostsList().enqueue(object : Callback<MutableList<Post>>{
             override fun onResponse(
                 call: Call<MutableList<Post>>,
                 response: Response<MutableList<Post>>
             ) {
                 post.postValue(response.body())
+                println("Onresponse: ${post.value}")
+
             }
 
             override fun onFailure(call: Call<MutableList<Post>>, t: Throwable) {

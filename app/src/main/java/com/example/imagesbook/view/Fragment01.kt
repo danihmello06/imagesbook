@@ -40,6 +40,7 @@ class Fragment01 : Fragment() {
     override fun onStart() {
         super.onStart()
         initRecyclerView()
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -50,6 +51,8 @@ class Fragment01 : Fragment() {
             Log.e(Fragment01::class.java.simpleName, "$posts")
         })
         viewModel.getPosts()
+        println("post value: ${viewModel.post.value}")
+
 
     }
 

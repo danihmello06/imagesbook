@@ -16,15 +16,7 @@ import kotlinx.android.synthetic.main.layout_photo_list_item.view.*
 class StaggeredRecycleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: List<Post> = ArrayList()
-    private var layoutId = 0  //resolver isso melhor
     private lateinit var viewModel: AppViewModel
-
-
-
-    fun StaggeredRecycleAdapter(@LayoutRes layoutId: Int, viewModel: AppViewModel) {
-        this.layoutId = layoutId
-        this.viewModel = viewModel
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
