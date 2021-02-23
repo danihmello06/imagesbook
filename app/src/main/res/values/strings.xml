@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ImagesBook</string>
-    <string name="bem_vindo_photobook">Bem-vindo(a) ao\nPhotobook</string>
+    <string name="bem_vindo_imageBook">Bem-vindo(a) ao Imagebook</string>
     <string name="endereco_email">Endereço de email</string>
     <string name="botao_continuar">Continuar</string>
     <string name="criar_senha">Criar uma senha</string>

@@ -7,22 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.imagesbook.R
 import com.example.imagesbook.adapter.StaggeredRecycleAdapter
 import com.example.imagesbook.TopSpacingItemDecoration
-import com.example.imagesbook.model.Post
-import com.example.imagesbook.model.Posts
-import com.example.imagesbook.remote.PostServiceFactory
 import com.example.imagesbook.viewmodel.AppViewModel
 import kotlinx.android.synthetic.main.fragment_01.*
-import kotlinx.coroutines.*
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Dispatchers.Main
-import kotlin.system.measureTimeMillis
 
 
 class Fragment01 : Fragment() {
@@ -40,20 +31,16 @@ class Fragment01 : Fragment() {
     override fun onStart() {
         super.onStart()
         initRecyclerView()
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         viewModel = ViewModelProvider(requireActivity()).get(AppViewModel::class.java)
         viewModel.post.observe(viewLifecycleOwner, Observer { posts ->
+            staggeredRecycleAdapter.submitList(posts)
             Log.e(Fragment01::class.java.simpleName, "$posts")
         })
         viewModel.getPosts()
-        println("post value: ${viewModel.post.value}")
-
-
     }
 
     private fun initRecyclerView() {

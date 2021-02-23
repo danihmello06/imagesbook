@@ -1,10 +1,9 @@
 package com.example.imagesbook.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.imagesbook.adapter.StaggeredRecycleAdapter
 import com.example.imagesbook.model.Post
-import com.example.imagesbook.model.Posts
 import com.example.imagesbook.remote.PostServiceFactory
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,7 +11,8 @@ import retrofit2.Response
 
 class AppViewModel : ViewModel() {
 
-    var post: MutableLiveData<MutableList<Post>> = MutableLiveData()
+    private var _post: MutableLiveData<List<Post>> = MutableLiveData()
+    var post: LiveData<List<Post>> = _post
 
     fun getPosts() {
 
@@ -21,9 +21,7 @@ class AppViewModel : ViewModel() {
                 call: Call<MutableList<Post>>,
                 response: Response<MutableList<Post>>
             ) {
-                post.postValue(response.body())
-                println("Onresponse: ${post.value}")
-
+                _post.postValue(response.body())
             }
 
             override fun onFailure(call: Call<MutableList<Post>>, t: Throwable) {

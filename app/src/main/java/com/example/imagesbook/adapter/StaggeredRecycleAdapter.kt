@@ -1,10 +1,8 @@
 package com.example.imagesbook.adapter
 
-import android.opengl.GLES32
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -16,13 +14,10 @@ import kotlinx.android.synthetic.main.layout_photo_list_item.view.*
 class StaggeredRecycleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: List<Post> = ArrayList()
-    private lateinit var viewModel: AppViewModel
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.layout_photo_list_item, parent, false)
-
         )
     }
 
