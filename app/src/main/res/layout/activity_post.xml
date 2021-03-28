@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".view.Activity.MainActivity">
 
-    <fragment
-        android:id="@+id/myNavHostFragment"
-        class="androidx.navigation.fragment.NavHostFragment"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/navigation"
+        android:text="Post activity"
+        android:textAlignment="center"
+        android:textSize="50dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

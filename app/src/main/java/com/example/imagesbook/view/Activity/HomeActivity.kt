@@ -1,37 +1,39 @@
-package com.example.imagesbook.view
+package com.example.imagesbook.view.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.imagesbook.R
+import com.example.imagesbook.view.Fragment.NewsFeedFragment
+import com.example.imagesbook.view.Fragment.SearchFragment
+import com.example.imagesbook.view.Fragment.ProfileFragment
 import com.example.imagesbook.viewmodel.AppViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class NewsFeed : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     lateinit var viewModel: AppViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_news_feed)
+        setContentView(R.layout.activity_home)
 
         viewModel = ViewModelProvider(this).get(AppViewModel::class.java)
 
         val bottomNV = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
-        val frag1 = Fragment01()
-        val frag2 = Fragment02()
-        val frag3 = Fragment03()
+        val newsFeedFragment = NewsFeedFragment()
+        val searchFragment = SearchFragment()
+        val profileFragment = ProfileFragment()
 
-        makeCurrentFragment(frag1)
+        makeCurrentFragment(newsFeedFragment)
 
         bottomNV.setOnNavigationItemSelectedListener {
             when(it.itemId) {
-                R.id.menu_home -> makeCurrentFragment(frag1)
-                R.id.menu_search -> makeCurrentFragment(frag2)
-                R.id.menu_message -> makeCurrentFragment(frag3)
+                R.id.menu_home -> makeCurrentFragment(newsFeedFragment)
+                R.id.menu_search -> makeCurrentFragment(searchFragment)
+                R.id.menu_message -> makeCurrentFragment(profileFragment)
             }
             true
         }

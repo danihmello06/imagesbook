@@ -1,4 +1,4 @@
-package com.example.imagesbook.view
+package com.example.imagesbook.view.Fragment
 
 import android.os.Bundle
 import android.os.Handler
@@ -16,10 +16,10 @@ import com.example.imagesbook.R
 import com.example.imagesbook.TopSpacingItemDecoration
 import com.example.imagesbook.adapter.StaggeredRecycleAdapter
 import com.example.imagesbook.viewmodel.AppViewModel
-import kotlinx.android.synthetic.main.fragment_01.*
+import kotlinx.android.synthetic.main.fragment_news_feed.*
 
 
-class Fragment01 : Fragment() {
+class NewsFeedFragment : Fragment() {
 
     private val staggeredRecycleAdapter by lazy { StaggeredRecycleAdapter() }
     lateinit var viewModel: AppViewModel
@@ -29,7 +29,7 @@ class Fragment01 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_01, container, false)
+        return inflater.inflate(R.layout.fragment_news_feed, container, false)
     }
 
     override fun onResume() {
@@ -39,7 +39,7 @@ class Fragment01 : Fragment() {
         viewModel.post.observe(viewLifecycleOwner, Observer { posts ->
             staggeredRecycleAdapter.submitList(posts)
             skeletonScreen.hide()
-            Log.e(Fragment01::class.java.simpleName, "$posts")
+            Log.e(NewsFeedFragment::class.java.simpleName, "$posts")
         })
         skeletonScreen = Skeleton.bind(recycler_view)
             .adapter(staggeredRecycleAdapter)

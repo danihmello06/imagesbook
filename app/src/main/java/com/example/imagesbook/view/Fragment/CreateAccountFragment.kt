@@ -1,4 +1,4 @@
-package com.example.imagesbook.view
+package com.example.imagesbook.view.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,14 +13,14 @@ import com.example.imagesbook.model.User
 import kotlinx.android.synthetic.main.create_account.view.*
 import java.util.*
 
-class CreateAccount: Fragment() {
+class CreateAccountFragment: Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.create_account, container, false)
+        val view = inflater.inflate(R.layout.fragment_create_account, container, false)
 
         view.btnAvancar.setOnClickListener{
             //createAccount(view)

@@ -6,18 +6,18 @@
     app:startDestination="@id/wellcome">
     <fragment
         android:id="@+id/createAccount"
-        android:name="com.example.imagesbook.view.CreateAccount"
+        android:name="com.example.imagesbook.view.Fragment.CreateAccountFragment"
         android:label="create_account"
-        tools:layout="@layout/create_account" >
+        tools:layout="@layout/fragment_create_account" >
         <action
             android:id="@+id/action_createAccount_to_newsFeed"
             app:destination="@id/newsFeed" />
     </fragment>
     <fragment
         android:id="@+id/wellcome"
-        android:name="com.example.imagesbook.view.Wellcome"
+        android:name="com.example.imagesbook.view.Fragment.WellcomeFragment"
         android:label="wellcome"
-        tools:layout="@layout/wellcome" >
+        tools:layout="@layout/fragment_wellcome" >
         <action
             android:id="@+id/action_wellcome_to_createAccount"
             app:destination="@id/createAccount" />
@@ -27,31 +27,40 @@
     </fragment>
     <fragment
         android:id="@+id/login"
-        android:name="com.example.imagesbook.view.Login"
+        android:name="com.example.imagesbook.view.Fragment.LoginFragment"
         android:label="login"
-        tools:layout="@layout/login" >
+        tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_login_to_newsFeed"
             app:destination="@id/newsFeed" />
     </fragment>
     <activity
         android:id="@+id/newsFeed"
-        android:name="com.example.imagesbook.view.NewsFeed"
+        android:name="com.example.imagesbook.view.Activity.HomeActivity"
         android:label="activity_news_feed"
-        tools:layout="@layout/activity_news_feed" />
+        tools:layout="@layout/activity_home" />
     <fragment
         android:id="@+id/fragment01"
-        android:name="com.example.imagesbook.view.Fragment01"
+        android:name="com.example.imagesbook.view.Fragment.NewsFeedFragment"
         android:label="fragment_01"
-        tools:layout="@layout/fragment_01" />
+        tools:layout="@layout/fragment_newsFeed" >
+        <action
+            android:id="@+id/action_fragment01_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
     <fragment
         android:id="@+id/fragment02"
-        android:name="com.example.imagesbook.view.Fragment02"
+        android:name="com.example.imagesbook.view.Fragment.Fragment02"
         android:label="fragment_02"
-        tools:layout="@layout/fragment_02" />
+        tools:layout="@layout/fragment_Search" />
     <fragment
         android:id="@+id/fragment03"
-        android:name="com.example.imagesbook.view.Fragment03"
+        android:name="com.example.imagesbook.view.Fragment.Fragment03"
         android:label="fragment_03"
-        tools:layout="@layout/fragment_03" />
+        tools:layout="@layout/fragment_Wellcome" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.imagesbook.view.Activity.MainActivity"
+        android:label="activity_post"
+        tools:layout="@layout/activity_post" />
 </navigation>

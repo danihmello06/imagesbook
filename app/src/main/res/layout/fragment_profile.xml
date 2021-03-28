@@ -3,15 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Fragment02">
+    tools:context=".view.Fragment.ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Second Fragment"
+        android:text="Profile Fragment"
         android:textAlignment="center"
         android:textSize="100dp"
-    />
+        />
 
 </FrameLayout>

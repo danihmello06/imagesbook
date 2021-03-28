@@ -12,8 +12,8 @@
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.NewsFeed"></activity>
-        <activity android:name=".view.MainActivity">
+        <activity android:name=".view.Activity.HomeActivity"></activity>
+        <activity android:name=".view.Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

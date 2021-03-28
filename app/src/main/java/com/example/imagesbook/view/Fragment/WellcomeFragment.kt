@@ -1,4 +1,4 @@
-package com.example.imagesbook.view
+package com.example.imagesbook.view.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,13 +9,13 @@ import androidx.navigation.Navigation
 import com.example.imagesbook.R
 import kotlinx.android.synthetic.main.wellcome.view.*
 
-class Wellcome : Fragment() {
+class WellcomeFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val view  = inflater.inflate(R.layout.wellcome, container, false)
+        val view  = inflater.inflate(R.layout.fragment_wellcome, container, false)
 
         view.btnContinuar.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.action_wellcome_to_createAccount)
