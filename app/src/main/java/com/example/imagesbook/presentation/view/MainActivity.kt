@@ -1,4 +1,4 @@
-package com.example.imagesbook.view
+package com.example.imagesbook.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

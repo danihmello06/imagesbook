@@ -1,4 +1,4 @@
-package com.example.imagesbook.view
+package com.example.imagesbook.presentation.view
 
 import android.os.Bundle
 import android.os.Handler
@@ -15,7 +15,7 @@ import com.ethanhua.skeleton.Skeleton
 import com.example.imagesbook.R
 import com.example.imagesbook.TopSpacingItemDecoration
 import com.example.imagesbook.adapter.StaggeredRecycleAdapter
-import com.example.imagesbook.viewmodel.AppViewModel
+import com.example.imagesbook.presentation.AppViewModel
 import kotlinx.android.synthetic.main.fragment_01.*
 
 

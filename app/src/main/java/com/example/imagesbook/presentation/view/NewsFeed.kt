@@ -1,12 +1,11 @@
-package com.example.imagesbook.view
+package com.example.imagesbook.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.imagesbook.R
-import com.example.imagesbook.viewmodel.AppViewModel
+import com.example.imagesbook.presentation.AppViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NewsFeed : AppCompatActivity() {

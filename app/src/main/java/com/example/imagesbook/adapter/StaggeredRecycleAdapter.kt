@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.imagesbook.R
 import com.example.imagesbook.model.Post
-import com.example.imagesbook.viewmodel.AppViewModel
 import kotlinx.android.synthetic.main.layout_photo_list_item.view.*
 
 class StaggeredRecycleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

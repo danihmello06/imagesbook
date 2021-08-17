@@ -1,4 +1,4 @@
-package com.example.imagesbook.view
+package com.example.imagesbook.presentation.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

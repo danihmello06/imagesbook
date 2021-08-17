@@ -1,4 +1,4 @@
-package com.example.imagesbook.viewmodel
+package com.example.imagesbook.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
